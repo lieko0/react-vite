@@ -40,6 +40,10 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 1rem;
+  background-image: url("../react-logo.png") ;
+  background-repeat: no-repeat;
+  background-position: 150%;
+  background-size: 50%;
 }
 
 .main-title {
@@ -54,6 +58,12 @@
 .main-list > * {
   margin: 0 0 1rem 0;
 }
+
+.main-list > li::marker {
+  color: #61DAFB;
+  font-size: 1.3rem;
+}
+
 
 body {
   background: #27292c;
