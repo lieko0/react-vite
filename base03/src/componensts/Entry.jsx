@@ -1,7 +1,10 @@
 export default function Entry() {
     return (
-        <div className="entry-card">
-            <img src="./react-logo.png" className="entry-card-img" />
+        <article className="entry-card">
+            
+            <div className="entry-card-img-container">
+                <img src="https://scrimba.com/links/travel-journal-japan-image-url" className="entry-card-img" />
+            </div>
             <div className="entry-card-text">
                 <div className="entry-location">
                     <img src="./marker.png" alt="Marcador" />
@@ -12,6 +15,6 @@ export default function Entry() {
                 <p className="entry-date">12 Jan, 2021 - 24 Jan, 2021</p>
                 <p className="entry-description">Mount Fuji is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.</p>
             </div>
-        </div>
+        </article>
     )
 }
