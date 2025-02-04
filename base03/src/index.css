@@ -1,10 +1,23 @@
+.app-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem 1.5rem 1rem;
+}
+
 .entry-card {
   height: 10rem;
+  max-width: 50rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 1rem 2.5rem 1rem 2.5rem;
-  max-width: 500px;
+  border-radius: 5px;
+}
+
+.entry-card:hover {
+  background-color: #cccccc;
 }
 
 .entry-card-img-container {
@@ -13,6 +26,10 @@
   overflow: hidden;
   border-radius: 5px;
   flex-shrink: 0;
+}
+
+.entry-card-img-container:active {
+  opacity: 50%;
 }
 
 
@@ -90,6 +107,7 @@
 .header-img {
   width: 24px;
   object-fit: cover;
+  margin-right: 5px;
 }
 
 .main-header {
@@ -100,6 +118,7 @@
   justify-content: center;
   background-color: #F55A5A;
   padding: 1rem 0 1rem 0;
+  user-select: none;
 }
 
 .main-header:hover {
