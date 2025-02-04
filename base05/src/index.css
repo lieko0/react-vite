@@ -33,7 +33,7 @@
 }
 
 .main-div {
-    padding: 70px 30px 10px;
+    padding: 70px 63px 10px;
 }
 
 .main-form-add-ingredient {
@@ -67,6 +67,16 @@
 .main-form-add-ingredient > button::before {
     content: "+";
     margin-right: 5px;
+}
+
+.main-ingredients-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: Inter;
+    font-size: 18px;
+    line-height: 28px;
+    color: #475467;
 }
 
 
