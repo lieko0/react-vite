@@ -1,26 +1,22 @@
 import { useState } from "react"
 
 export default function Main() {
-    const [ingredients, setIngredients] = useState([
-        "Chicken",
-        "Oregano",
-        "Tomatoes",
-        "Garlic",
-        "Onions",
-    ])
+    const [ingredients, setIngredients] = useState([])
     
     const ingredientsList = ingredients.map((ingredient, index) => { 
         return <li key={index}>{ingredient}</li>
     })
 
     function handleSubmit(event) {
-        event.preventDefault()
+        event.preventDefault() //prevent page from reloading
         const newIngredient = new FormData(event.target).get("add-ingredient")
         
         if (!newIngredient || ingredients.includes(newIngredient)) return
         
-        setIngredients((prevIngredients) => [...prevIngredients, newIngredient])
-        event.target.reset()
+        setIngredients((prevIngredients) => [
+            ...prevIngredients, 
+            newIngredient]) //use callback function if you care about the old value!
+        event.target.reset() //clear the input field
     }
 
     return (
