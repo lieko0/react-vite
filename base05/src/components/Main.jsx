@@ -7,21 +7,24 @@ export default function Main() {
         return <li key={index}>{ingredient}</li>
     })
 
-    function handleSubmit(event) {
-        event.preventDefault() //prevent page from reloading
-        const newIngredient = new FormData(event.target).get("add-ingredient")
-        
-        if (!newIngredient || ingredients.includes(newIngredient)) return
-        
+    // action from react 19
+    function addIngredient(formData) {
+        // implicitly prevent page from reloading
+        // implicitly get the form data
+        const newIngr = formData.get("add-ingredient")
+
+        if (!newIngr || ingredients.includes(newIngr)) return
+
         setIngredients((prevIngredients) => [
-            ...prevIngredients, 
-            newIngredient]) //use callback function if you care about the old value!
-        event.target.reset() //clear the input field
+            ...prevIngredients,
+            newIngr
+        ])
+        // implicitly clear the input field
     }
 
     return (
         <main className="main-div">
-            <form onSubmit={handleSubmit} className="main-form-add-ingredient">
+            <form action={addIngredient} className="main-form-add-ingredient">
                 <input 
                     type="text"
                     placeholder="e.g. oregano"
@@ -37,3 +40,17 @@ export default function Main() {
         </main>
     )
 }
+
+
+    // //onSubmit event handler
+    // function handleSubmit(event) {
+    //     event.preventDefault() //prevent page from reloading
+    //     const newIngredient = new FormData(event.target).get("add-ingredient")
+        
+    //     if (!newIngredient || ingredients.includes(newIngredient)) return
+        
+    //     setIngredients((prevIngredients) => [
+    //         ...prevIngredients, 
+    //         newIngredient]) //use callback function if you care about the old value!
+    //     event.target.reset() //clear the input field
+    // }
