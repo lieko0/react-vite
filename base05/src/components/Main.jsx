@@ -33,10 +33,29 @@ export default function Main() {
                 />
                 <button>Add ingredient</button>
             </form>
-            <h2>Ingredients on hand:</h2>
-            <ul className="main-ingredients-list">
-                {ingredientsList}
-            </ul>
+
+            <section>
+                <h2>Ingredients on hand:</h2>
+                {
+                    ingredients.length === 0 
+                    ?
+                    <p>Empty list. Start adding some ingredients :)</p>
+                    :
+                    <>
+                        <ul className="main-ingredients-list" aria-live="polite">
+                            {ingredientsList}
+                        </ul>
+                        <div className="main-get-recipe-container">
+                            <div>
+                                <h3>Ready for a recipe?</h3>
+                                <p>Generate a recipe from your list of ingredients.</p>
+                            </div>
+                            <button>Get a recipe</button>
+                        </div>
+                    </>
+                }
+
+            </section>
         </main>
     )
 }

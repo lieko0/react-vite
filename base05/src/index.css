@@ -79,6 +79,41 @@
     color: #475467;
 }
 
+.main-get-recipe-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 42px 28px 42px;
+    background-color: #F0EFEB;
+    border-radius: 6px;
+}
+
+.main-get-recipe-container > div > * {
+    margin-block-start: 4px;
+    margin-block-end: 4px;
+}
+
+.main-get-recipe-container > div > p {  
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    color: #475467;
+}
+
+.main-get-recipe-container > button {
+    font-family: Inter, sans-serif;
+    border-radius: 6px;
+    border: none;
+    background-color: #D17557;
+    color: #FAFAF8;
+    width: 115px;
+    height: 38px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+
 
 * {
     box-sizing: border-box;
