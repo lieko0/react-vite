@@ -88,6 +88,12 @@
     border-radius: 6px;
 }
 
+.main-get-recipe-container > span {
+    font-size: 18px;
+    font-weight: 300;
+    color: #475467;
+}
+
 .main-get-recipe-container > div > * {
     margin-block-start: 4px;
     margin-block-end: 4px;

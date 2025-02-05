@@ -37,23 +37,30 @@ export default function Main() {
             <section>
                 <h2>Ingredients on hand:</h2>
                 {
-                    ingredients.length === 0 
+                    ingredients.length > 0
+                    &&
+                    <ul className="main-ingredients-list" aria-live="polite">
+                        {ingredientsList}
+                    </ul>
+                }
+                <div className="main-get-recipe-container">
+                {
+                    ingredients.length > 3 
                     ?
-                    <p>Empty list. Start adding some ingredients :)</p>
+                    <>
+                        <div>
+                            <h3>Ready for a recipe?</h3>
+                            <p>Generate a recipe from your list of ingredients.</p>
+                        </div>
+                        <button>Get a recipe</button>
+                    </>
                     :
                     <>
-                        <ul className="main-ingredients-list" aria-live="polite">
-                            {ingredientsList}
-                        </ul>
-                        <div className="main-get-recipe-container">
-                            <div>
-                                <h3>Ready for a recipe?</h3>
-                                <p>Generate a recipe from your list of ingredients.</p>
-                            </div>
-                            <button>Get a recipe</button>
-                        </div>
+                        <span>Add at least 4 ingredients to generate a recipe.</span>
+                        <button disabled>Get a recipe</button>   
                     </>
                 }
+                </div>
 
             </section>
         </main>
