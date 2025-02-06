@@ -119,7 +119,17 @@
     font-weight: 500;
 }
 
+.main-get-recipe-container > button:hover {
+    background-color: #dd5a2b;
+}
 
+.main-get-recipe-container > button:active {
+    background-color: #E18C6D;
+}
+
+.main-get-recipe-container > button:disabled {
+    background-color: #c4bab6;
+}
 
 * {
     box-sizing: border-box;
