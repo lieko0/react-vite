@@ -1,12 +1,17 @@
+import { useState } from "react";
+
 export default function Pad(props) {
+    const [isOn, setIsOn] = useState(props.isOn)
+
     return (
         <button 
             style={{
                 backgroundColor: props.color, 
-                borderColor: props.isOn ? props.color : "white"
+                borderColor: isOn ? "white" : props.color 
             }} 
             key={props.id}
-            className={props.isOn && "on"}
+            className={isOn ? "on" : null } // Using && leads to ClassName="false"
+            onClick={() => setIsOn((prev) => !prev)}
         >
             {props.text}
         </button>
