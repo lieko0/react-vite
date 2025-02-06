@@ -131,6 +131,14 @@
     background-color: #c4bab6;
 }
 
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
 * {
     box-sizing: border-box;
 }
