@@ -9,6 +9,7 @@ body {
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -31,4 +32,15 @@ button {
 
 button.on {
     opacity: 1;
+}
+
+button.all{
+    margin-top: 30px;
+    padding: 10px;
+    height: auto;
+    width: auto;
+    background-color: red;
+    color: white;
+    border: none;
+    font-weight: 800;
 }

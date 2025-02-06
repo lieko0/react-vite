@@ -1,17 +1,20 @@
 import { useState } from "react";
 
 export default function Pad(props) {
-    const [isOn, setIsOn] = useState(props.isOn)
+
+    function handleClick() {
+        props.toggleFunction(props.id)
+    }
 
     return (
         <button 
             style={{
                 backgroundColor: props.color, 
-                borderColor: isOn ? "white" : props.color 
+                borderColor: props.isOn ? "white" : props.color 
             }} 
             key={props.id}
-            className={isOn ? "on" : null } // Using && leads to ClassName="false"
-            onClick={() => setIsOn((prev) => !prev)}
+            className={props.isOn ? "on" : null } // Using && leads to ClassName="false"
+            onClick={handleClick}
         >
             {props.text}
         </button>
