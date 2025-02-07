@@ -1,40 +1,56 @@
-import { useState } from "react"
-import ClaudeRecipe from "./ClaudeRecipe"
+import { useState, useEffect, useActionState } from "react"
+import MistralRecipe from "./MistralRecipe"
 import IngredientList from "./IngredientList"
+import { getRecipeFromMistral } from "../ai"
 
 export default function Main() {
-    const [ingredients, setIngredients] = useState(["", "", ""])
+    const [ingredients, setIngredients] = useState(["Coffee", "Milk", "Dark Chocolate", "Cinnamon"])
     const [recipeShown, setRecipeShown] = useState(false)
+    const [recipe, setRecipe] = useState("")
     
     // action from react 19
-    function addIngredient(formData) {
-        // implicitly prevent page from reloading
+    const addIngredient = (prevState, formData) => {
+        "use server";
+        // explicitly prevent page from reloading
         // implicitly get the form data
         const newIngr = formData.get("add-ingredient")
-
-        if (!newIngr || ingredients.includes(newIngr)) return
-
+        
+        if (!newIngr || ingredients.includes(newIngr)) return prevState
+        
         setIngredients((prevIngredients) => [
             ...prevIngredients,
             newIngr
         ])
         // implicitly clear the input field
     }
-
-    function getRecipe() {
+    
+    const [state, formAction, isPending] = useActionState(addIngredient, null)
+    
+    async function getRecipe() {
         setRecipeShown((prev)=> !prev)
+        if (!recipeShown) setRecipe('')
     }
+
+    useEffect(() => {
+        if (!recipeShown) return
+        async function fetchData() {
+            const aiRecipe = await getRecipeFromMistral(ingredients)
+            console.log(aiRecipe)
+            setRecipe(aiRecipe)
+          }
+          fetchData();
+    }, [recipeShown])
 
     return (
         <main className="main-div">
-            <form action={addIngredient} className="main-form-add-ingredient">
+            <form action={formAction} className="main-form-add-ingredient">
                 <input 
                     type="text"
                     placeholder="e.g. oregano"
                     aria-label="Add ingredient"
                     name="add-ingredient"
                 />
-                <button>Add ingredient</button>
+                <button type="submit">Add ingredient</button>
             </form>
 
             <IngredientList 
@@ -45,7 +61,9 @@ export default function Main() {
             {
                 recipeShown
                 &&
-                <ClaudeRecipe />
+                <MistralRecipe 
+                    recipe={recipe} 
+                />
             }   
 
         </main>

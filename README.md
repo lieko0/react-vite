@@ -17,7 +17,7 @@
 - Simple dinamic site that uses a component to render a list of jokes
 - Condicional rendering
 
-## base05 - Claude Recipe
+## base05 - Mistral Recipe
 - Dinamic site that uses a component to render a list of recipes
 - Condicional rendering
 - Event handling
@@ -39,4 +39,4 @@
 
 [course](https://www.youtube.com/watch?v=x4rFhThSX04)
 
-9:10:00
+9:17:00
