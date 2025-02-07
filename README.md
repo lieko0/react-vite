@@ -21,7 +21,7 @@
 - Dinamic site that uses a component to render a list of recipes
 - Condicional rendering
 - Event handling
-- [WIP] API integration
+- API integration with Mistrel AI (Hugging Face Model)
 - [figma](https://www.figma.com/design/73iyU720zWmrWgJsok5tYE/Chef-Claude?node-id=0-1&p=f&t=z5Yi0jXf9i8iheaq-0)
 
 ## base06 - Card & Forms
