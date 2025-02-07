@@ -5,45 +5,25 @@ import { getRecipeFromMistral } from "../ai"
 
 export default function Main() {
     const [ingredients, setIngredients] = useState(["Coffee", "Milk", "Dark Chocolate", "Cinnamon"])
-    const [recipeShown, setRecipeShown] = useState(false)
     const [recipe, setRecipe] = useState("")
     
-    // action from react 19
-    const addIngredient = (prevState, formData) => {
-        "use server";
-        // explicitly prevent page from reloading
-        // implicitly get the form data
-        const newIngr = formData.get("add-ingredient")
-        
-        if (!newIngr || ingredients.includes(newIngr)) return prevState
-        
-        setIngredients((prevIngredients) => [
-            ...prevIngredients,
-            newIngr
-        ])
-        // implicitly clear the input field
+    function addIngredient(formData) {
+        const newIngredient = formData.get("add-ingredient")
+
+        if (!newIngredient || ingredients.includes(newIngredient)) return
+
+        setIngredients(prevIngredients => [...prevIngredients, newIngredient])
     }
-    
-    const [state, formAction, isPending] = useActionState(addIngredient, null)
     
     async function getRecipe() {
-        setRecipeShown((prev)=> !prev)
-        if (!recipeShown) setRecipe('')
+        setRecipe("# Loading...")
+        const aiRecipe = await getRecipeFromMistral(ingredients)
+        setRecipe(aiRecipe)
     }
-
-    useEffect(() => {
-        if (!recipeShown) return
-        async function fetchData() {
-            const aiRecipe = await getRecipeFromMistral(ingredients)
-            console.log(aiRecipe)
-            setRecipe(aiRecipe)
-          }
-          fetchData();
-    }, [recipeShown])
 
     return (
         <main className="main-div">
-            <form action={formAction} className="main-form-add-ingredient">
+            <form action={addIngredient} className="main-form-add-ingredient">
                 <input 
                     type="text"
                     placeholder="e.g. oregano"
@@ -59,7 +39,7 @@ export default function Main() {
             />
 
             {
-                recipeShown
+                recipe
                 &&
                 <MistralRecipe 
                     recipe={recipe} 
