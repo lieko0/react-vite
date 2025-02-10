@@ -1,4 +1,4 @@
-import { useState, useEffect, useActionState } from "react"
+import { useState, useRef, useEffect } from "react"
 import MistralRecipe from "./MistralRecipe"
 import IngredientList from "./IngredientList"
 import { getRecipeFromMistral } from "../ai"
@@ -14,12 +14,22 @@ export default function Main() {
 
         setIngredients(prevIngredients => [...prevIngredients, newIngredient])
     }
+
+    const recipeSection = useRef(null)
+    console.log(recipeSection)
+
     
     async function getRecipe() {
-        setRecipe("# Loading...")
+        setRecipe("# Thinking...")
         const aiRecipe = await getRecipeFromMistral(ingredients)
         setRecipe(aiRecipe)
     }
+
+    useEffect(() => {
+        if (recipe && recipeSection.current) {
+            recipeSection.current.scrollIntoView({ behavior: "smooth" })
+        }
+    }, [recipe])
 
     return (
         <main className="main-div">
@@ -36,6 +46,7 @@ export default function Main() {
             <IngredientList 
                 ingredients={ingredients}  
                 getRecipe={getRecipe}
+                ref={recipeSection}
             />
 
             {
