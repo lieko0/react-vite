@@ -39,6 +39,7 @@
 
 ## base09 - Tenzies
 - Interactive dice game
+- Aceessibility with aria-label, aria-pressed and focus management with useRef
 
 ---
 ---
@@ -48,4 +49,4 @@
 
 [course](https://www.youtube.com/watch?v=x4rFhThSX04)
 
-11:42:00
+13:11:00
