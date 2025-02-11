@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Die from "./Die";
 import {nanoid} from "nanoid";
 import Confetti from "react-confetti";
 import {useWindowSize} from "react-use";
 
 export default function App() {
-    const [dices, setDices] = useState(generateAllNewDice());
+    const [dices, setDices] = useState(() => generateAllNewDice()); // the anonymous function prevent the function from being called on every render
     
     const gameWon = dices.every(die => die.isHeld) &&
         dices.every(die => die.value === dices[0].value);
@@ -16,7 +16,8 @@ export default function App() {
 
     function generateAllNewDice() {
         return new Array(10).fill(0).map(() => ({
-                value: getRandomDieValue(),
+                //value: getRandomDieValue(),
+                value: 1,
                 isHeld: false,
                 id: nanoid(),
         }));
@@ -57,17 +58,28 @@ export default function App() {
     }));
     }
 
+    const newGameButtonRef = useRef(null)
+
+    useEffect(() => {
+        if (gameWon && newGameButtonRef.current) {
+            newGameButtonRef.current.focus();
+        }
+    }, [gameWon]);
+
     const {width, height} = useWindowSize();
     
     return (
         <main>
             {gameWon && <Confetti width={width} height={height} />}
+            <div aria-live="polite" className="sr-only">
+                {gameWon && <p>Congratulations, You won! Press "New Game" to start again.</p>}
+            </div>
             <h1 className="title">Tenzies</h1>
             <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
            <div className="main-dice-container">
                 {arrayDie}
            </div>
-            <button onClick={gameWon ? resetGame : rowDice} className="roll-button">
+            <button ref={newGameButtonRef} onClick={gameWon ? resetGame : rowDice} className="roll-button">
                 {gameWon ? "New game" : "Roll"}
             </button>
         </main>
