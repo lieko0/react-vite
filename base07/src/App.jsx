@@ -4,7 +4,7 @@ import padsData from "./pads"
 
 export default function App() {
     const [padState, setPadState] = React.useState(padsData)
-    console.log("rendering App")
+    //console.log("rendering App")
     function togglePad(id) {
         setPadState(
             prevPads => prevPads.map((pad) => {

@@ -16,7 +16,7 @@ export default function Main() {
     }
 
     const recipeSection = useRef(null)
-    console.log(recipeSection)
+    //console.log(recipeSection)
 
     
     async function getRecipe() {

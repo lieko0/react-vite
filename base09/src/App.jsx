@@ -16,8 +16,7 @@ export default function App() {
 
     function generateAllNewDice() {
         return new Array(10).fill(0).map(() => ({
-                //value: getRandomDieValue(),
-                value: 1,
+                value: getRandomDieValue(),
                 isHeld: false,
                 id: nanoid(),
         }));
