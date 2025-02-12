@@ -21,7 +21,7 @@
 - Dinamic site that uses a component to render a list of recipes
 - Condicional rendering
 - Event handling
-- API integration with Mistrel AI (Hugging Face Model)
+- API integration with Mistral AI (Hugging Face Model)
 - Learning about useState and useEffect
 - [figma](https://www.figma.com/design/73iyU720zWmrWgJsok5tYE/Chef-Claude?node-id=0-1&p=f&t=z5Yi0jXf9i8iheaq-0)
 
