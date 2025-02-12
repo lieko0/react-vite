@@ -11,15 +11,15 @@
 - Simple static site with header, footer and a main content area
 
 ## base03 - my travel journal (project)
-- Simple dinamic site that uses a component to render a list of entry cards
+- Simple dynamic site that uses a component to render a list of entry cards
 
 ## base04 - jokes
-- Simple dinamic site that uses a component to render a list of jokes
-- Condicional rendering
+- Simple dynamic site that uses a component to render a list of jokes
+- Conditional rendering
 
 ## base05 - Mistral Recipe (project)
-- Dinamic site that uses a component to render a list of recipes
-- Condicional rendering
+- Dynamic site that uses a component to render a list of recipes
+- Conditional rendering
 - Event handling
 - API integration with Mistral AI (Hugging Face Model)
 - Learning about useState and useEffect
@@ -45,7 +45,7 @@
 ## base10 - Assembly: Endgame (project)
 - Interactive game
 - A11y for screen readers
-- Confettis 'o' 
+- Confetti 
 - [figma](https://www.figma.com/design/VJNO8MeMT3E0B2twQ1HajU/Assembly%3A-Endgame?node-id=50-129&t=SjtDpKgJhFoxDle3-0)
 
 ---
