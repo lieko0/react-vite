@@ -45,6 +45,7 @@
 - Interactive game
 - A11y for screen readers
 - Confettis 'o' 
+- [figma](https://www.figma.com/design/VJNO8MeMT3E0B2twQ1HajU/Assembly%3A-Endgame?node-id=50-129&t=SjtDpKgJhFoxDle3-0)
 
 ---
 ---
