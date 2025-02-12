@@ -10,14 +10,14 @@
 ## base02
 - Simple static site with header, footer and a main content area
 
-## base03 - my travel journal
+## base03 - my travel journal (project)
 - Simple dinamic site that uses a component to render a list of entry cards
 
 ## base04 - jokes
 - Simple dinamic site that uses a component to render a list of jokes
 - Condicional rendering
 
-## base05 - Mistral Recipe
+## base05 - Mistral Recipe (project)
 - Dinamic site that uses a component to render a list of recipes
 - Condicional rendering
 - Event handling
@@ -29,17 +29,22 @@
 - Interactive card component
 - Form handling
 
-## base07 - Sound Pad
+## base07 - Sound Pad (project)
 - Interactive sound pad component
 
-## base08 - Meme Generator
+## base08 - Meme Generator (project)
 - Interactive meme generator page
 - API integration with ImgFlip
 - Learning about useEffect
 
-## base09 - Tenzies
+## base09 - Tenzies (project)
 - Interactive dice game
 - Aceessibility with aria-label, aria-pressed and focus management with useRef
+
+## base10 - Assembly: Endgame (project)
+- Interactive game
+- A11y for screen readers
+- Confettis 'o' 
 
 ---
 ---
@@ -49,4 +54,4 @@
 
 [course](https://www.youtube.com/watch?v=x4rFhThSX04)
 
-13:11:00
+13:50:00
