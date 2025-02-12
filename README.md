@@ -39,7 +39,8 @@
 
 ## base09 - Tenzies (project)
 - Interactive dice game
-- Aceessibility with aria-label, aria-pressed and focus management with useRef
+- A11y with aria-label, aria-pressed and focus management with useRef
+- [figma](https://www.figma.com/design/FqsxRUhAaXM4ezddQK0CdR/Tenzies?node-id=2-31)
 
 ## base10 - Assembly: Endgame (project)
 - Interactive game
