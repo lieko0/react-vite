@@ -54,5 +54,3 @@
 # Resources
 
 [course](https://www.youtube.com/watch?v=x4rFhThSX04)
-
-13:50:00
